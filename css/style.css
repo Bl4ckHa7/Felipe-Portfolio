@@ -77,6 +77,8 @@ body {
     filter: drop-shadow(0 0 10px var(--azul-eletrico));
 }
 
+
+
 .nav-links {
     display: flex;
     gap: 2rem;
@@ -128,8 +130,8 @@ body {
 }
 
 .hero-content img{
-    height: 290px;
-    border-radius: 50px;
+    height: 270px;
+    border-radius: 80px;
 }
 
 @keyframes pulse-glow {
@@ -139,7 +141,7 @@ body {
 
 .hero-title {
     font-family: 'Orbitron', monospace;
-    font-size: 3.5rem;
+    font-size: 2.7rem;
     font-weight: 900;
     margin-bottom: 1rem;
     background: linear-gradient(45deg, var(--branco), var(--azul-eletrico));
@@ -456,14 +458,17 @@ body {
         justify-content: center;
         gap: 1rem;
     }
-
+    .hero-content {
+        font-size: 20px;
+    }
     .hero-content img{
-    height: 175px;
-    border-radius: 50px;
+    margin-top: 3rem;
+    height: 150px;
+    border-radius: 60px;
 }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .hero-subtitle {
@@ -500,7 +505,8 @@ body {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
+    
     }
     
     .section-title {
