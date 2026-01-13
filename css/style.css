@@ -130,7 +130,8 @@ body {
 }
 
 .hero-content img{
-    height: 270px;
+    margin-top: 7rem;
+    height: 250px;
     border-radius: 80px;
 }
 
@@ -192,6 +193,7 @@ body {
     position: relative;
     overflow: hidden;
     border: 2px solid transparent;
+    margin-bottom: 3rem;
 }
 
 .cta-button-large {
