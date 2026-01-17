@@ -25,6 +25,7 @@ body {
 
 .projects {
   max-width: 900px;
+  padding-top: 4rem;
   margin: auto;
 }
 
@@ -497,7 +498,7 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
     .projects {
-    padding-top: 4rem;
+    padding-top: 6.5rem;
     max-width: 650px;
     margin: auto;
     }
@@ -560,7 +561,7 @@ body {
 @media (max-width: 480px) {
     
     .projects {
-    padding-top: 4rem;
+    padding-top: 6.5rem;
     max-width: 400px;
     margin: auto;
     }
