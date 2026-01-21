@@ -4,6 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+            font-family: 'CustomFont';
+            src: url('Future\ Glitch.ttf') format('truetype');
+        }
 
 :root {
     --preto-profundo: #0D0D0D;
@@ -15,17 +19,26 @@
 }
 
 body {
+    font-family: 'CustomFont', Arial, sans-serif;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--preto-profundo);
     color: var(--branco);
     line-height: 1.6;
     overflow-x: hidden;
+    
 }
 
 
-.projects {
+.comment{
+    font-family: 'CustomFont', Arial, sans-serif;
   max-width: 900px;
   padding-top: 4rem;
+  margin: auto;
+}
+
+.subcomment{
+     font-family: 'CustomFont', Arial, sans-serif;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -100,6 +113,7 @@ body {
 
 /* Header */
 .header {
+    font-family: 'CustomFont', Arial, sans-serif;
     position: fixed;
     top: 0;
     width: 100%;
@@ -206,6 +220,7 @@ body {
     font-weight: 300;
 }
 
+
 .hero-bg-pattern {
     position: absolute;
     top: 0;
@@ -241,6 +256,8 @@ body {
     overflow: hidden;
     border: 2px solid transparent;
     margin-bottom: 3rem;
+    font-family: 'CustomFont', Arial, sans-serif;
+    color: rgb(0, 99, 191);
 }
 
 .cta-button-large {
