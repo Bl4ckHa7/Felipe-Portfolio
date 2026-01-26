@@ -4,10 +4,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 @font-face {
-            font-family: 'CustomFont';
-            src: url('Future\ Glitch.ttf') format('truetype');
-        }
+    font-family: 'CustomFont';
+    src: url('Future\ Glitch.ttf') format('truetype');
+}
 
 :root {
     --preto-profundo: #0D0D0D;
