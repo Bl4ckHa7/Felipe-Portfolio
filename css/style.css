@@ -61,7 +61,10 @@ body {
   background-color: #2b2f36;
   padding: 20px;
   border-radius: 16px;
+  margin: auto;
+  max-width: 1200px;
   margin-bottom: 20px;
+  border: 2px dashed var(--azul-eletrico);
 }
 
 .project-card img {
@@ -295,6 +298,10 @@ body {
 .about {
     padding: 5rem 0;
     background: var(--cinza-grafite);
+}
+
+.about img{
+    border-radius: 50px;
 }
 
 .about-content {
