@@ -9,6 +9,10 @@
     font-family: 'CustomFont';
     src: url('Future\ Glitch.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'CustomFont2';
+    src: url('Bad\ Signal.otf') format('truetype');
+}
 
 :root {
     --preto-profundo: #0D0D0D;
@@ -52,6 +56,13 @@ body {
 .subcomment {
   color: #5c6370;
   margin-bottom: 30px;
+}
+
+.projects a{
+    color: var(--azul-eletrico);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .project-card {
@@ -206,7 +217,7 @@ body {
 }
 
 .hero-title {
-    font-family: 'Orbitron', monospace;
+    font-family: 'CustomFont2', monospace;
     font-size: 2.7rem;
     font-weight: 900;
     margin-bottom: 1rem;
@@ -250,7 +261,7 @@ body {
     color: var(--preto-profundo);
     border: none;
     padding: 1rem 2rem;
-    font-size: 1.1rem;
+    font-size: 2rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -260,7 +271,7 @@ body {
     overflow: hidden;
     border: 2px solid transparent;
     margin-bottom: 3rem;
-    font-family: Arial, sans-serif;
+    font-family: 'customFont2', Arial, sans-serif;
     font-weight: bolder;
     color: rgb(0, 99, 191);
     margin-top: 2rem;
