@@ -198,7 +198,7 @@ body {
     to { filter: drop-shadow(0 0 50px var(--azul-eletrico)); }
 }
 .hero-title {
-    font-family: 'CustomFont5', monospace;
+    font-family: 'CustomFont6', monospace;
     font-size: 2.7rem;
     font-weight: 900;
     margin-bottom: 1rem;
@@ -241,7 +241,7 @@ body {
     position: relative;
     overflow: hidden;
     margin-bottom: 3rem;
-    font-family: 'CustomFont5', Arial, sans-serif;
+    font-family: 'CustomFont6', Arial, sans-serif;
     font-weight: bolder;
     color: rgb(0, 99, 191);
     margin-top: 2rem;
