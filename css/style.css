@@ -6,6 +6,32 @@
     font-family: 'CustomFont2';
     src: url('Bad\ Signal.otf') format('truetype');
 }
+
+@font-face {
+    font-family: 'CustomFont3';
+    src: url('Futurama\ bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'CustomFont4';
+    src: url('game_over.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'CustomFont5';
+    src: url('Pixel\ Digivolve.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'CustomFont6';
+    src: url('Pixelmax-Regular.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'CustomFont7';
+    src: url('RETROTECH.ttf') format('truetype');
+}
+
 :root {
     --preto-profundo: #0D0D0D;
     --cinza-grafite: #1F1F1F;
@@ -172,7 +198,7 @@ body {
     to { filter: drop-shadow(0 0 50px var(--azul-eletrico)); }
 }
 .hero-title {
-    font-family: 'CustomFont2', monospace;
+    font-family: 'CustomFont5', monospace;
     font-size: 2.7rem;
     font-weight: 900;
     margin-bottom: 1rem;
@@ -215,7 +241,7 @@ body {
     position: relative;
     overflow: hidden;
     margin-bottom: 3rem;
-    font-family: 'customFont2', Arial, sans-serif;
+    font-family: 'CustomFont5', Arial, sans-serif;
     font-weight: bolder;
     color: rgb(0, 99, 191);
     margin-top: 2rem;
