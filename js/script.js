@@ -51,27 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('beforeunload', () => clearInterval(glitchInterval));
     }
 
-    // ==================== TYPEWRITER ====================
-    function typeWriter(element, text, speed = 30) {
-        let i = 0;
-        element.textContent = ''; // mais eficiente que innerHTML
-        function write() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i++);
-                setTimeout(write, speed);
-            }
-        }
-        write();
-    }
-
-    if (bioTexts.length) {
-        bioTexts.forEach((text, index) => {
-            const originalText = text.textContent || '';
-            if (originalText) {
-                setTimeout(() => typeWriter(text, originalText, 30), index * 1400);
-            }
-        });
-    }
 
     // ==================== CARD ANIMATION (IntersectionObserver) ====================
     if (cards.length) {
