@@ -45,6 +45,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.contact{
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    padding-top: 6rem;
+    margin: auto;
+    color: #98c379;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--preto-profundo);
