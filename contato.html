@@ -5,38 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackHub - Contato</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="LogoIcone.ico" type="image/x-icon">
 </head>
-
 <body>
     <div class="glitch-overlay"></div>
 
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="index.html"><img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img"></a>
-        </div>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="projetos.html" class="nav-link">Projetos</a>
-            <a href="sobre.html" class="nav-link">Sobre</a>
-            <a target="_blank" href="https://github.com/Bl4ckHa7" class="nav-link">Github</a>
-            <a href="#contato" class="nav-link">Contato</a>
-        </div>
-    </nav>
-</header>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html"><img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img"></a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projetos.html" class="nav-link">Projetos</a>
+                <a href="sobre.html" class="nav-link">Sobre</a>
+                <a target="_blank" href="https://github.com/Bl4ckHa7" class="nav-link">GitHub</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+            </div>
+        </nav>
+    </header>
 
-<section class="contact">
-    <div class="contact-info">
-        <p><strong>LinkedIn:</strong> <a href="" target="_blank">Felipe Sales</a></p>
-        <p><strong>Email:</strong> <a href="mailto:felipepessoa404@gmail.com">felipepessoa404@gmail.com</a></p>
-        <p><strong>Discord:</strong> BlackHat</p>
-        <p><strong>Whatsapp:</strong> (11) 93074-5778</p>
-        <p><a href="" download="">Curriculo</a></p>
-    </div>
-</section>
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <p class="section-subtitle">Vamos conversar? Envie sua mensagem ou use um dos canais abaixo.</p>
 
-    
-<script src="js/script.js"></script>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informações</h3>
+                    <div class="info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/felipesales" target="_blank">Felipe Sales</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:felipepessoa404@gmail.com">felipepessoa404@gmail.com</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-discord"></i>
+                        <span>BlackHat</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/5511930745778">(11) 93074-5778</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="#" download>Currículo (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Envie uma mensagem</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Texto-logo.png" alt="BlackHub" class="footer-logo-img">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2026 BlackHub. Todos os direitos reservados.</p>
+                    <p>Black: o código por trás do sucesso.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
