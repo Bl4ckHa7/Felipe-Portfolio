@@ -4,28 +4,8 @@
     src: url('Future Glitch.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Bad Signal';
-    src: url('Bad Signal.otf') format('truetype');
-}
-@font-face {
-    font-family: 'Futurama Bold';
-    src: url('Futurama bold.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'Game Over';
-    src: url('game_over.ttf') format('truetype');
-}
-@font-face {
     font-family: 'Pixel Digivolve';
     src: url('Pixel Digivolve.otf') format('truetype');
-}
-@font-face {
-    font-family: 'Pixelmax';
-    src: url('Pixelmax-Regular.otf') format('truetype');
-}
-@font-face {
-    font-family: 'RETROTECH';
-    src: url('RETROTECH.ttf') format('truetype');
 }
 
 :root {
