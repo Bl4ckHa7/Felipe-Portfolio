@@ -46,7 +46,7 @@
     --sombra-neon: 0 0 15px var(--azul-eletrico);
     --sombra-neon-forte: 0 0 30px var(--azul-eletrico);
     --transicao: all 0.3s ease;
-    --borda-neon: 2px dashed var(--azul-eletrico);
+    --borda-neon: 2px solid var(--azul-eletrico);
 }
 
 * {
@@ -674,7 +674,7 @@ body {
 }
 
 .contact-container {
-    display: grid;
+    display: center;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     max-width: 1000px;
