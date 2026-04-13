@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlackHub - Sobre</title>
+    <title>BlackHub — Sobre</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="LogoIcone.ico" type="image/x-icon">
 </head>
 <body>
@@ -13,23 +14,37 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="index.html"><img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img"></a>
+                <a href="index.html">
+                    <img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img">
+                </a>
             </div>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="projetos.html" class="nav-link">Projetos</a>
                 <a href="sobre.html" class="nav-link">Sobre</a>
-                <a target="_blank" href="https://github.com/Bl4ckHa7" class="nav-link">GitHub</a>
+                <a href="https://github.com/Bl4ckHa7" target="_blank" class="nav-link">GitHub</a>
                 <a href="contato.html" class="nav-link">Contato</a>
             </div>
         </nav>
     </header>
 
-    <section class="about">
+    <!-- ===== SOBRE — terminal + sidebar ===== -->
+    <section class="about-section">
         <div class="container">
+
+            <span class="section-label">// about me</span>
+            <h2 class="section-title">Minha <span class="hl">História</span></h2>
+            <p class="section-subtitle">De brinquedos desmontados à tecnologia — a curiosidade sempre foi o motor.</p>
+
             <div class="about-content">
+
+                <!-- Terminal box -->
                 <div class="about-text">
-                    <h2 class="section-title">Minha história</h2>
                     <div class="terminal-box">
                         <div class="terminal-header">
                             <span class="terminal-dot red"></span>
@@ -37,19 +52,81 @@
                             <span class="terminal-dot green"></span>
                         </div>
                         <div class="terminal-content">
-                            <h3>Minha mãe nunca entendeu por que eu destruía meus presentes.</h3>
+                            <span class="term-prompt">$ cat about.txt</span>
                             <p>
-                                Ela via apenas brinquedos quebrados. Eu via mistérios esperando para serem desvendados. Crescer em São Paulo me ensinou que a vida também é assim: um monte de peças soltas que a gente precisa aprender a encaixar. Passei anos juntando parafusos – uns de tecnologia, outros de alma humana. Até que um dia fiz a pergunta que mudou tudo: e se o que realmente precisa ser desmontado não são os objetos, mas as correntes que a gente carrega sem perceber? Foi assim que nasceu minha obsessão pela liberdade. Não a liberdade dos discursos bonitos, mas aquela que sua mãe sente quando dorme tranquila sem dívidas. Aquela que você sente quando pode escolher o próprio caminho. Hoje, meu trabalho é um só: ajudar pessoas a montarem a própria vida – com as peças que realmente importam. Se você também quer isso, vem comigo.
+                                Minha mãe nunca entendeu por que eu destruía meus presentes.
+                                Ela via apenas brinquedos quebrados. Eu via mistérios esperando
+                                para serem desvendados.
+                            </p>
+                            <br>
+                            <p>
+                                Crescer em São Paulo me ensinou que a vida também é assim: um
+                                monte de peças soltas que a gente precisa aprender a encaixar.
+                                Passei anos juntando parafusos — uns de tecnologia, outros de
+                                alma humana.
+                            </p>
+                            <br>
+                            <p>
+                                Até que um dia fiz a pergunta que mudou tudo: e se o que
+                                realmente precisa ser desmontado não são os objetos, mas as
+                                correntes que a gente carrega sem perceber?
+                            </p>
+                            <br>
+                            <p>
+                                Foi assim que nasceu minha obsessão pela liberdade. Não a
+                                liberdade dos discursos bonitos, mas aquela que sua mãe sente
+                                quando dorme tranquila sem dívidas. Aquela que você sente quando
+                                pode escolher o próprio caminho.
+                            </p>
+                            <br>
+                            <p>
+                                Hoje, meu trabalho é um só: ajudar pessoas a montarem a própria
+                                vida — com as peças que realmente importam. Se você também quer
+                                isso, vem comigo.
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="images/Profile cartoon png.png" alt="Black Logo" class="about-logo">
+
+                <!-- Sidebar: foto + skills -->
+                <div class="about-sidebar">
+                    <div class="about-image-wrapper">
+                        <img src="images/Profile cartoon png.png" alt="Black">
+                    </div>
+
+                    <div class="skills-card">
+                        <h4>Stack &amp; Habilidades</h4>
+                        <div class="skills-tags">
+                            <span class="skill-tag">HTML / CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Cibersegurança</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Hardware</span>
+                            <span class="skill-tag">Edição de Vídeo</span>
+                            <span class="skill-tag">Redes</span>
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">Git / GitHub</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Texto-logo.png" alt="BlackHub" class="footer-logo-img">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2026 BlackHub. Todos os direitos reservados.</p>
+                    <p>Black: o código por trás do sucesso.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>

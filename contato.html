@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlackHub - Contato</title>
+    <title>BlackHub — Contato</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="LogoIcone.ico" type="image/x-icon">
 </head>
@@ -14,48 +15,82 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="index.html"><img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img"></a>
+                <a href="index.html">
+                    <img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img">
+                </a>
             </div>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="projetos.html" class="nav-link">Projetos</a>
                 <a href="sobre.html" class="nav-link">Sobre</a>
-                <a target="_blank" href="https://github.com/Bl4ckHa7" class="nav-link">GitHub</a>
+                <a href="https://github.com/Bl4ckHa7" target="_blank" class="nav-link">GitHub</a>
                 <a href="contato.html" class="nav-link">Contato</a>
             </div>
         </nav>
     </header>
 
+    <!-- ===== CONTATO — contact cards grid ===== -->
     <section class="contact-section">
         <div class="container">
-            <h2 class="section-title">Contato</h2>
-            <p class="section-subtitle">Vamos conversar? Envie sua mensagem em um dos canais abaixo.</p>
 
+            <span class="section-label">// contact</span>
+            <h2 class="section-title">Vamos <span class="hl">Conversar?</span></h2>
+            <p class="section-subtitle">Escolha o canal de sua preferência — responderei o mais rápido possível.</p>
+
+            <!-- .contact-container mantido para o scroll reveal do JS -->
             <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Informações</h3>
-                    <div class="info-item">
+                <div class="contact-grid">
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/felipe-sales-pessoa-b0814b34b/" target="_blank" class="contact-card">
                         <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/felipe-sales-pessoa-b0814b34b/" target="_blank">Felipe Sales</a>
-                    </div>
-                    <div class="info-item">
+                        <span class="card-label">LinkedIn</span>
+                        <span class="card-value">Felipe Sales</span>
+                    </a>
+
+                    <!-- E-mail -->
+                    <a href="mailto:felipepessoa404@gmail.com" class="contact-card">
                         <i class="fas fa-envelope"></i>
-                        <a href="#">felipepessoa404@gmail.com</a>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-discord"></i>
-                        <span>bl4ckha7</span>
-                    </div>
-                    <div class="info-item">
+                        <span class="card-label">E-mail</span>
+                        <span class="card-value">felipepessoa404@gmail.com</span>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/5511930745778" target="_blank" class="contact-card">
                         <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/5511930745778">(11) 93074-5778</a>
-                    </div>
-                    <div class="info-item">
+                        <span class="card-label">WhatsApp</span>
+                        <span class="card-value">(11) 93074-5778</span>
+                    </a>
+
+                    <!-- Discord -->
+                    <a class="contact-card" style="cursor: default;">
+                        <i class="fab fa-discord"></i>
+                        <span class="card-label">Discord</span>
+                        <span class="card-value">bl4ckha7</span>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/Bl4ckHa7" target="_blank" class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <span class="card-label">GitHub</span>
+                        <span class="card-value">Bl4ckHa7</span>
+                    </a>
+
+                    <!-- Currículo -->
+                    <a href="images/Curriculo.pdf" download class="contact-card">
                         <i class="fas fa-file-pdf"></i>
-                        <a href="images/Curriculo.pdf" download>Currículo (PDF)</a>
-                    </div>
+                        <span class="card-label">Currículo</span>
+                        <span class="card-value">Baixar PDF</span>
+                    </a>
+
                 </div>
             </div>
+
         </div>
     </section>
 

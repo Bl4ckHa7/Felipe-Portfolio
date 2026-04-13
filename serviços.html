@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlackHub - Serviços</title>
+    <title>BlackHub — Serviços</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="LogoIcone.ico" type="image/x-icon">
 </head>
 <body>
@@ -13,53 +14,47 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="index.html"><img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img"></a>
+                <a href="index.html">
+                    <img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img">
+                </a>
             </div>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="projetos.html" class="nav-link">Projetos</a>
                 <a href="sobre.html" class="nav-link">Sobre</a>
-                <a target="_blank" href="https://github.com/Bl4ckHa7" class="nav-link">GitHub</a>
+                <a href="https://github.com/Bl4ckHa7" target="_blank" class="nav-link">GitHub</a>
                 <a href="contato.html" class="nav-link">Contato</a>
             </div>
         </nav>
     </header>
 
+    <!-- ===== SERVIÇOS — cards icon-first ===== -->
     <section class="services-section">
         <div class="container">
-            <h2 class="section-title">Minhas Soluções</h2>
-            <p class="section-subtitle">Ofereço um portfólio completo de serviços tecnológicos para atender desde pequenas empresas até grandes corporações</p>
 
-             
+            <span class="section-label">// services</span>
+            <h2 class="section-title">Minhas <span class="hl">Soluções</span></h2>
+            <p class="section-subtitle">Serviços tecnológicos sob medida — do desenvolvimento web à manutenção de hardware.</p>
+
+            <!-- Filtros de categoria -->
             <div class="service-categories">
                 <button class="category-btn active">Todos</button>
-                <!-- <button class="category-btn">Segurança</button> -->
                 <button class="category-btn">Hardware</button>
-                <!-- <button class="category-btn">Consultoria</button> -->
-                <!-- <button class="category-btn">Suporte</button> -->
                 <button class="category-btn">Web</button>
-                <button class="category-btn">video</button>
-    
+                <button class="category-btn">Video</button>
             </div>
-            
 
-
+            <!-- Grid de serviços -->
             <div class="services-grid">
 
-                <!--
-                Categorias de Serviços
-                 segurança
-                 hardware
-                 consultoria
-                 suporte
-                 web
-                 video
-                 outros
-                -->
-
-                <!-- Card para Desenvolvimento Web -->
+                <!-- Desenvolvimento Web -->
                 <div class="service-card" data-category="web">
-                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Desenvolvimento Web" class="service-img">
+                    <div class="service-icon">🌐</div>
                     <div class="service-content">
                         <h3>Desenvolvimento Web</h3>
                         <p>Criação de sites e sistemas sob medida, responsivos e otimizados para SEO.</p>
@@ -69,16 +64,19 @@
                             <li>Integração com APIs e bancos de dados</li>
                             <li>Manutenção e atualização de sites</li>
                         </ul>
-                        <div class="service-price">Orçamento sob consulta</div>
-                        <a href="contato.html" class="btn">Agendar</a>
+                        <div class="service-divider"></div>
+                        <div class="service-footer">
+                            <span class="service-price">Orçamento sob consulta</span>
+                            <a href="contato.html" class="btn">Agendar</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card para Manutenção de computadores e notebooks (corrigido) -->
+                <!-- Manutenção de Hardware -->
                 <div class="service-card" data-category="hardware">
-                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Manutenção de computadores e notebooks" class="service-img">
+                    <div class="service-icon">🔧</div>
                     <div class="service-content">
-                        <h3>Manutenção de computadores e notebooks</h3>
+                        <h3>Manutenção de Computadores</h3>
                         <p>Reparo e upgrade de computadores e notebooks com peças originais e garantia.</p>
                         <ul class="service-features">
                             <li>Limpeza interna e troca de pasta térmica</li>
@@ -86,14 +84,17 @@
                             <li>Upgrade de memória RAM e SSD</li>
                             <li>Recuperação de dados e formatação</li>
                         </ul>
-                        <div class="service-price">Orçamento sob consulta</div>
-                        <a href="contato.html" class="btn">Agendar</a>
+                        <div class="service-divider"></div>
+                        <div class="service-footer">
+                            <span class="service-price">Orçamento sob consulta</span>
+                            <a href="contato.html" class="btn">Agendar</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card para Edição de Vídeo -->
+                <!-- Edição de Vídeo -->
                 <div class="service-card" data-category="video">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Edição de Vídeo" class="service-img">
+                    <div class="service-icon">🎬</div>
                     <div class="service-content">
                         <h3>Edição de Vídeo</h3>
                         <p>Edição profissional para vídeos institucionais, YouTube, eventos e redes sociais.</p>
@@ -103,8 +104,11 @@
                             <li>Animações e transições personalizadas</li>
                             <li>Renderização em alta resolução</li>
                         </ul>
-                        <div class="service-price">Orçamento sob consulta</div>
-                        <a href="contato.html" class="btn">Agendar</a>
+                        <div class="service-divider"></div>
+                        <div class="service-footer">
+                            <span class="service-price">Orçamento sob consulta</span>
+                            <a href="contato.html" class="btn">Agendar</a>
+                        </div>
                     </div>
                 </div>
 
@@ -112,31 +116,33 @@
         </div>
     </section>
 
+    <!-- ===== COMO TRABALHO ===== -->
     <section class="work-process">
         <div class="container">
-            <h2 class="section-title">Como Trabalho</h2>
-            <p class="section-subtitle">Meu processo de atendimento para máxima eficiência</p>
+            <span class="section-label">// process</span>
+            <h2 class="section-title">Como <span class="hl">Trabalho</span></h2>
+            <p class="section-subtitle">Um processo claro e transparente, do primeiro contato à entrega final.</p>
 
             <div class="process-steps">
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <h3>Diagnóstico</h3>
-                    <p>Análise detalhada das suas necessidades e infraestrutura atual</p>
+                    <p>Análise detalhada das suas necessidades e do contexto atual do projeto.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>Proposta</h3>
-                    <p>Apresentação de soluções personalizadas com orçamento transparente</p>
+                    <p>Soluções personalizadas apresentadas com orçamento claro e sem surpresas.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <h3>Implantação</h3>
-                    <p>Execução do projeto com o mínimo de interrupção para seu negócio</p>
+                    <h3>Execução</h3>
+                    <p>Entrega do projeto com o mínimo de interrupção para o seu dia a dia.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <h3>Suporte</h3>
-                    <p>Acompanhamento contínuo e ajustes para otimização</p>
+                    <p>Acompanhamento contínuo e ajustes para garantir os melhores resultados.</p>
                 </div>
             </div>
         </div>

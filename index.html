@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BlackHub - Portfólio e serviços de tecnologia e cibersegurança">
-    <title>BlackHub - Início</title>
+    <meta name="description" content="BlackHub — Portfólio e serviços de tecnologia e cibersegurança">
+    <title>BlackHub — Início</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="LogoIcone.ico" type="image/x-icon">
 </head>
 <body>
@@ -15,30 +15,74 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="index.html"><img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img"></a>
+                <a href="index.html">
+                    <img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img">
+                </a>
             </div>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="projetos.html" class="nav-link">Projetos</a>
                 <a href="sobre.html" class="nav-link">Sobre</a>
-                <a target="_blank" href="https://github.com/Bl4ckHa7" class="nav-link">GitHub</a>
+                <a href="https://github.com/Bl4ckHa7" target="_blank" class="nav-link">GitHub</a>
                 <a href="contato.html" class="nav-link">Contato</a>
             </div>
         </nav>
     </header>
 
+    <!-- ===== HERO — layout 2 colunas ===== -->
     <section class="hero">
+
         <div class="hero-content">
-            <img src="images/Profile cartoon png.png" alt="Black Avatar">
-            <h1 class="hero-title">
-                Black.<br>
-                Apaixonado por Tecnologia<br>
-                e pelo mundo da Cibersegurança.
-            </h1>
-            <div class="hero-cta">
-                <a href="serviços.html"><button class="cta-button">MEUS SERVIÇOS</button></a>
+
+            <!-- Coluna de texto -->
+            <div class="hero-text">
+                <span class="hero-badge">Tecnologia &amp; Cibersegurança</span>
+
+                <h1 class="hero-title">Black.</h1>
+
+                <p class="hero-subtitle">
+                    Desenvolvedor, criador de conteúdo e apaixonado pelo mundo da
+                    <span class="hl">Cibersegurança</span>.<br>
+                    Construindo soluções que fazem diferença.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="serviços.html" class="cta-button">Ver Serviços</a>
+                    <a href="projetos.html" class="cta-button cta-outline">Ver Projetos</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div>
+                        <span class="stat-num">4</span>
+                        <span class="stat-label">Projetos</span>
+                    </div>
+                    <div>
+                        <span class="stat-num">3</span>
+                        <span class="stat-label">Serviços</span>
+                    </div>
+                    <div>
+                        <span class="stat-num">SP</span>
+                        <span class="stat-label">Brasil</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- Coluna da imagem -->
+            <div class="hero-image">
+                <div class="hero-img-wrapper">
+                    <img src="images/Profile cartoon png.png" alt="Black Avatar">
+                    <div class="hero-img-ring"></div>
+                    <div class="hero-img-glow"></div>
+                </div>
+            </div>
+
         </div>
+
         <div class="hero-bg-pattern"></div>
     </section>
 

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlackHub - Projetos</title>
+    <title>BlackHub — Projetos</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="LogoIcone.ico" type="image/x-icon">
 </head>
 <body>
@@ -13,71 +14,99 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="index.html"><img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img"></a>
+                <a href="index.html">
+                    <img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img">
+                </a>
             </div>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="projetos.html" class="nav-link">Projetos</a>
                 <a href="sobre.html" class="nav-link">Sobre</a>
-                <a target="_blank" href="https://github.com/Bl4ckHa7" class="nav-link">GitHub</a>
+                <a href="https://github.com/Bl4ckHa7" target="_blank" class="nav-link">GitHub</a>
                 <a href="contato.html" class="nav-link">Contato</a>
             </div>
         </nav>
     </header>
 
-    <section class="projects">
-        <p class="comment">/* Projects */</p>
-        <p class="subcomment">// Content creation</p>
+    <!-- ===== PROJETOS — grid 2 colunas ===== -->
+    <section class="projects-section">
+        <div class="container">
 
-        <div class="project-card">
-            <a href="https://www.youtube.com/@Bl4ckHa7" target="_blank">
-                <img src="images/Profile cartoon png.png" alt="Bl4ck">
-            </a>
-            <div>
-                <a href="https://www.youtube.com/@Bl4ckHa7" target="_blank">
-                    <h3>Bl4ck</h3>
-                </a>
-                <p>Meu canal no YouTube: conteúdo sobre Tecnologia e Opiniões.</p>
+            <div class="projects-header">
+                <span class="section-label">// portfolio</span>
+                <h2 class="section-title">Meus <span class="hl">Projetos</span></h2>
+                <p class="section-subtitle">Uma seleção do que já construí — de aplicações web a canais de conteúdo.</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Bl4ck — YouTube -->
+                <div class="project-card">
+                    <div class="project-img-area">
+                        <img src="images/Profile cartoon png.png" alt="Bl4ck">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Conteúdo</span>
+                        <h3>Bl4ck</h3>
+                        <p>Canal no YouTube com conteúdo sobre Tecnologia, Cibersegurança e Opiniões.</p>
+                        <a href="https://www.youtube.com/@Bl4ckHa7" target="_blank" class="project-link">
+                            Visitar canal ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BilaBilu Crochê -->
+                <div class="project-card">
+                    <div class="project-img-area">
+                        <img src="images/Logo BilaBilu2.png" alt="BilaBilu Crochê">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Web / Freelance</span>
+                        <h3>BilaBilu Crochê</h3>
+                        <p>Site de divulgação e vendas para artesanato em crochê, desenvolvido do zero para uma cliente.</p>
+                        <a href="https://bilabilu.netlify.app/" target="_blank" class="project-link">
+                            Ver projeto ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pomodoro -->
+                <div class="project-card">
+                    <div class="project-img-area">
+                        <img src="images/Relogio.png" alt="Pomodoro Timer">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">App</span>
+                        <h3>Pomodoro</h3>
+                        <p>Timer interativo baseado na técnica Pomodoro para gerenciamento de foco e produtividade.</p>
+                        <a href="https://bl4ckha7.github.io/Pomodoro/" target="_blank" class="project-link">
+                            Ver projeto ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- JM Auto Peças -->
+                <div class="project-card">
+                    <div class="project-img-area" style="background: #1e2330;">
+                        <span style="font-family: var(--fonte-titulo); font-size: 1.4rem; color: var(--azul-eletrico); letter-spacing: 2px; text-shadow: 0 0 15px rgba(0,168,255,0.4);">JM</span>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">E-commerce</span>
+                        <h3>JM Auto Peças</h3>
+                        <p>Projeto de e-commerce para loja de auto peças, com catálogo de produtos e interface de compra.</p>
+                        <a href="https://bl4ckha7.github.io/JM/" target="_blank" class="project-link">
+                            Ver projeto ↗
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-        <div class="project-card">
-            <a href="https://bilabilu.netlify.app/" target="_blank">
-                <img src="images/Logo BilaBilu2.png" alt="BilaBilu">
-            </a>
-            <div>
-                <a href="https://bilabilu.netlify.app/" target="_blank">
-                    <h3>BilaBilu Crochê</h3>
-                </a>
-                <p>BilaBilu Crochê: Projeto sobre artesanato em crochê produzido para divulgação de produtos.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <a href="https://bl4ckha7.github.io/Pomodoro/" target="_blank">
-                <img src="images/Relogio.png" alt="Pomodoro">
-            </a>
-            <div>
-                <a href="https://bl4ckha7.github.io/Pomodoro/" target="_blank">
-                    <h3>Pomodoro</h3>
-                </a>
-                <p>Pomodoro: Projeto de timer para gerenciamento de tempo com base na técnica Pomodoro.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <a href="https://bl4ckha7.github.io/JM/" target="_blank">
-                <img src="#" alt="JM auto peças">
-            </a>
-            <div>
-                <a href="https://bl4ckha7.github.io/JM/" target="_blank">
-                    <h3>JM auto peças</h3>
-                </a>
-                <p>JM auto peças: projeto de E-commerce de auto peças</p>
-            </div>
-        </div>
-
-
     </section>
 
     <script src="js/script.js"></script>

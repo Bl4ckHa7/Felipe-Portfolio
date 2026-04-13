@@ -24,15 +24,56 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.className = 'custom-cursor';
         body.appendChild(cursor);
 
+        // ── Rastro: cria N pontos com tamanhos decrescentes ──────────────
+        const TRAIL_LEN  = 14;
+        const posHistory = [];   // histórico de posições interpoladas
+        const trailEls   = [];
+
+        for (let i = 0; i < TRAIL_LEN; i++) {
+            const el = document.createElement('div');
+            el.className = 'cursor-trail';
+            // tamanho: 6 px perto do cursor → 2 px longe
+            const size   = Math.max(2, Math.round(6 - (i / TRAIL_LEN) * 4));
+            const offset = -(size / 2);
+            el.style.cssText =
+                `width:${size}px;height:${size}px;` +
+                `margin-top:${offset}px;margin-left:${offset}px;`;
+            body.appendChild(el);
+            trailEls.push(el);
+        }
+        // ─────────────────────────────────────────────────────────────────
+
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
-        const speed = 0.15;
+        let targetScale = 1, currentScale = 1;
+
+        const lerpScale = 0.18;   // suavidade do scale no hover
 
         function updateCursor() {
-            cursorX += (mouseX - cursorX) * speed;
-            cursorY += (mouseY - cursorY) * speed;
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
+            // posição direta — sem lerp, sem delay
+            cursorX = mouseX;
+            cursorY = mouseY;
+
+            // interpola escala (sem conflito com translate3d)
+            currentScale += (targetScale - currentScale) * lerpScale;
+
+            cursor.style.transform =
+                `translate3d(${cursorX}px, ${cursorY}px, 0) scale(${currentScale})`;
+
+            // ── Atualiza o rastro ──────────────────────────────────────
+            posHistory.unshift({ x: cursorX, y: cursorY });
+            if (posHistory.length > TRAIL_LEN + 1) posHistory.pop();
+
+            trailEls.forEach((el, i) => {
+                const pos = posHistory[i + 1];
+                if (!pos) { el.style.opacity = '0'; return; }
+                const t = i / TRAIL_LEN;                // 0 = perto, 1 = longe
+                el.style.transform =
+                    `translate3d(${pos.x}px, ${pos.y}px, 0)`;
+                el.style.opacity = ((1 - t) * 0.65).toFixed(3);
+            });
+            // ──────────────────────────────────────────────────────────
+
             requestAnimationFrame(updateCursor);
         }
 
@@ -45,12 +86,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const interactiveElements = $$('a, button, .project-card, .service-card, .pillar-card, .category-btn');
         interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            el.addEventListener('mouseenter', () => {
+                targetScale = 1.7;
+                cursor.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                targetScale = 1;
+                cursor.classList.remove('hover');
+            });
         });
 
-        document.addEventListener('mouseleave', () => cursor.style.opacity = '0');
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            trailEls.forEach(el => el.style.opacity = '0');
+        });
         document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
+    }
+
+    // ==================== HAMBURGUER MENU ====================
+    const navToggle  = $('.nav-toggle');
+    const navLinksEl = $('.nav-links');
+
+    if (navToggle && navLinksEl) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinksEl.classList.toggle('open');
+            navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        // Fecha ao clicar em qualquer link
+        navLinksEl.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksEl.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Fecha ao clicar fora do menu
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navLinksEl.contains(e.target)) {
+                navLinksEl.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
 
     // ==================== SMOOTH SCROLL PARA LINKS INTERNOS ====================
