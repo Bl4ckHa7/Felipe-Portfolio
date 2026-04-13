@@ -572,7 +572,7 @@ img { max-width: 100%; height: auto; display: block; }
     object-fit: contain;
     transition: transform 0.5s ease, filter 0.3s ease;
     filter: brightness(0.9);
-    border-radius: 1rem;
+    border-radius: 5px;
 }
 
 .project-card:hover .project-img-area img {
