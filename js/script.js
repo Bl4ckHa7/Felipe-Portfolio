@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const body            = document.body;
     const header          = $('.header');
     const hero            = $('.hero');
-    // Glitch JS aplicado apenas em section-titles — hero-title agora usa glow CSS limpo
-    const glitchElements  = $$('.section-title');
     const scrollProgress  = $('.scroll-progress');
     const backToTop       = $('.back-to-top');
     const navLinks        = $$('.nav-link');
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.className = 'custom-cursor';
         body.appendChild(cursor);
 
-        const TRAIL_LEN  = 14;
+        const TRAIL_LEN  = 7;
         const posHistory = [];
         const trailEls   = [];
 
@@ -136,23 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==================== GLITCH EFFECT SUAVE ====================
-    if (glitchElements.length && !reducedMotion) {
-        setInterval(() => {
-            glitchElements.forEach(el => {
-                if (Math.random() < 0.1) {
-                    const r = Math.floor(Math.random() * 4) - 2;
-                    const g = Math.floor(Math.random() * 4) - 2;
-                    const b = Math.floor(Math.random() * 4) - 2;
-                    el.style.textShadow = `${r}px 0 #ff00ff, ${g}px 0 #00ffff, ${b}px 0 #ffff00`;
-                    setTimeout(() => {
-                        el.style.textShadow = '0 0 30px var(--azul-eletrico)';
-                    }, 150);
-                }
-            });
-        }, 2000);
-    }
-
     // ==================== DETECÇÃO DE MOBILE / TOUCH ====================
     const isMobile      = window.matchMedia('(max-width: 768px)').matches;
     const isTouch       = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
@@ -160,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== PARTÍCULAS NO HERO (só desktop) ====================
     if (hero && !hero.querySelector('.particle') && !reducedMotion && !isLowPower) {
-        const particleCount = 50;
+        const particleCount = 22;
         const fragment = document.createDocumentFragment();
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
@@ -227,19 +208,31 @@ document.addEventListener('DOMContentLoaded', () => {
         revealTargets.forEach(activateReveal);
     }
 
-    // ==================== HEADER FIXO COM HIDE-ON-SCROLL ====================
+    // ==================== HEADER + SCROLL EVENTS (THROTTLED COM rAF) ====================
     if (header) {
         let lastScrollTop = 0;
         const scrollThreshold = 100;
+        let ticking = false;
+        let docHeightCache = 0;
+
+        // Cache de offsets das seções — evita layout read no scroll
+        let sectionOffsets = [];
+        function rebuildSectionCache() {
+            sectionOffsets = sections.map(sec => ({ id: sec.id, top: sec.offsetTop }));
+            docHeightCache = document.documentElement.scrollHeight - window.innerHeight;
+        }
+        rebuildSectionCache();
+        window.addEventListener('resize', rebuildSectionCache, { passive: true });
+        window.addEventListener('load',   rebuildSectionCache);
+
+        let headerScrolled = false; // estado atual: header com bg "scrolled" ou não
 
         function onScroll() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            // Scroll progress bar
-            if (scrollProgress) {
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-                scrollProgress.style.width = pct + '%';
+            // Scroll progress bar (sem leitura de layout — usa cache)
+            if (scrollProgress && docHeightCache > 0) {
+                scrollProgress.style.width = ((scrollTop / docHeightCache) * 100) + '%';
             }
 
             // Hide on scroll
@@ -250,42 +243,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-            // Fundo do header
-            if (scrollTop > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.98)';
-                header.style.backdropFilter = 'blur(15px)';
-            } else {
-                header.style.background = 'rgba(10, 10, 10, 0.9)';
-                header.style.backdropFilter = 'blur(10px)';
+            // Header bg: alterna via classe (sem escrever style inline em todo scroll)
+            const shouldBeScrolled = scrollTop > 100;
+            if (shouldBeScrolled !== headerScrolled) {
+                header.classList.toggle('is-scrolled', shouldBeScrolled);
+                headerScrolled = shouldBeScrolled;
             }
 
             // Back to top
             if (backToTop) {
-                if (scrollTop > 500) backToTop.classList.add('visible');
-                else                 backToTop.classList.remove('visible');
+                backToTop.classList.toggle('visible', scrollTop > 500);
             }
 
-            // Active nav link
-            updateActiveNav(scrollTop);
+            // Active nav link (usa cache de offsets — sem layout read)
+            if (sectionOffsets.length && navLinks.length) {
+                const offset = scrollTop + window.innerHeight * 0.3;
+                let currentId = sectionOffsets[0].id;
+                for (const sec of sectionOffsets) {
+                    if (sec.top <= offset) currentId = sec.id;
+                }
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+                });
+            }
+
+            ticking = false;
         }
 
-        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(onScroll);
+                ticking = true;
+            }
+        }, { passive: true });
+
         onScroll();
-    }
-
-    // ==================== ACTIVE NAV BASEADO EM SCROLL ====================
-    function updateActiveNav(scrollTop) {
-        if (!sections.length || !navLinks.length) return;
-        const offset = scrollTop + window.innerHeight * 0.3;
-        let currentId = sections[0].id;
-        for (const sec of sections) {
-            if (sec.offsetTop <= offset) currentId = sec.id;
-        }
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === `#${currentId}`) link.classList.add('active');
-            else                          link.classList.remove('active');
-        });
     }
 
     // ==================== COUNTER-UP NAS STATS ====================

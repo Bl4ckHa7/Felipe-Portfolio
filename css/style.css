@@ -129,7 +129,7 @@ img { max-width: 100%; height: auto; display: block; }
     line-height: 1.75;
 }
 
-/* ===== GLITCH OVERLAY ===== */
+/* ===== GLITCH OVERLAY (estático — sem animação de scan que repintava a tela toda) ===== */
 .glitch-overlay {
     position: fixed;
     inset: 0;
@@ -137,16 +137,10 @@ img { max-width: 100%; height: auto; display: block; }
     z-index: 999;
     background: repeating-linear-gradient(
         0deg,
-        rgba(0, 168, 255, 0.018) 0px,  /* azul-eletrico muito sutil */
+        rgba(0, 168, 255, 0.018) 0px,
         transparent 1px,
-        transparent 2px
+        transparent 3px
     );
-    animation: glitch-scan 8s linear infinite;
-}
-
-@keyframes glitch-scan {
-    0%   { background-position: 0 0; }
-    100% { background-position: 0 20px; }
 }
 
 /* ===== CURSOR PERSONALIZADO ===== */
@@ -197,15 +191,20 @@ img { max-width: 100%; height: auto; display: block; }
     position: fixed;
     top: 0; width: 100%;
     background: rgba(10, 10, 10, 0.88);     /* preto-profundo com alpha */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);            /* reduzido de 20 → 10: 4× menos custo de blur */
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: var(--borda-sutil);
     z-index: 100;
     padding: 1rem 0;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .header-hidden { transform: translateY(-100%); }
+
+/* Aplicado via JS quando scrollTop > 100 — substitui escrita inline de background */
+.header.is-scrolled {
+    background: rgba(10, 10, 10, 0.96);
+}
 
 .nav {
     display: flex;
@@ -488,7 +487,7 @@ img { max-width: 100%; height: auto; display: block; }
     z-index: 1;
 }
 
-/* Background do hero */
+/* Background do hero — grid estática (animação infinita custava paint contínuo) */
 .hero-bg-pattern {
     position: absolute;
     inset: 0;
@@ -496,13 +495,7 @@ img { max-width: 100%; height: auto; display: block; }
         linear-gradient(90deg, transparent 99%, rgba(0, 168, 255, 0.06) 100%),
         linear-gradient(0deg,  transparent 99%, rgba(0, 168, 255, 0.06) 100%);
     background-size: 60px 60px;
-    animation: grid-move 20s linear infinite;
     pointer-events: none;
-}
-
-@keyframes grid-move {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(60px, 60px); }
 }
 
 /* Partículas (geradas via JS) */
@@ -1484,15 +1477,10 @@ button, .cta-button, .contact-card, .nav-link {
     transform: translateY(-3px);
 }
 
-/* ===== SCROLL REVEAL — stagger nos cards/skills ===== */
-/* Aceleração GPU nos elementos animados */
-.skill-tag,
-.contact-grid .contact-card,
-.projects-grid .project-card,
-.reveal {
-    will-change: opacity, transform;
-    backface-visibility: hidden;
-}
+/* ===== SCROLL REVEAL — stagger nos cards/skills =====
+   IMPORTANTE: `will-change` global em muitos elementos cria várias camadas GPU
+   permanentemente, gastando memória e custando mais do que economiza. Removido
+   daqui e aplicado pontualmente só quando o elemento está realmente animando. */
 
 .skill-tag {
     opacity: 0;
