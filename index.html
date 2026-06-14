@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BlackHub — Portfólio e serviços de tecnologia e cibersegurança">
-    <title>BlackHub — Início</title>
+    <meta name="description" content="BlackHub — Portfólio de Felipe Sales (Black). Desenvolvedor e entusiasta de Cibersegurança.">
+    <title>BlackHub — Portfólio</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="LogoIcone.ico" type="image/x-icon">
 </head>
 <body>
     <div class="glitch-overlay"></div>
 
+    <!-- Barra de progresso de scroll -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="index.html">
+                <a href="#hero">
                     <img src="images/Texto-logo.png" alt="BlackHub Logo" class="logo-img">
                 </a>
             </div>
@@ -25,25 +29,26 @@
                 <span class="burger-line"></span>
             </button>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="projetos.html" class="nav-link">Projetos</a>
-                <a href="sobre.html" class="nav-link">Sobre</a>
-                <a href="https://github.com/Bl4ckHa7" target="_blank" class="nav-link">GitHub</a>
-                <a href="contato.html" class="nav-link">Contato</a>
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#projetos" class="nav-link">Projetos</a>
+                <a href="#contato" class="nav-link">Contato</a>
+                <a href="https://github.com/Bl4ckHa7" target="_blank" rel="noopener" class="nav-link">GitHub ↗</a>
             </div>
         </nav>
     </header>
 
-    <!-- ===== HERO — layout 2 colunas ===== -->
-    <section class="hero">
+    <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
 
         <div class="hero-content">
 
-            <!-- Coluna de texto -->
             <div class="hero-text">
                 <span class="hero-badge">Tecnologia &amp; Cibersegurança</span>
 
-                <h1 class="hero-title">Black.</h1>
+                <h1 class="hero-title" data-text="Black.">Black.</h1>
 
                 <p class="hero-subtitle">
                     Desenvolvedor, criador de conteúdo e apaixonado pelo mundo da
@@ -52,18 +57,18 @@
                 </p>
 
                 <div class="hero-cta">
-                    <a href="serviços.html" class="cta-button">Ver Serviços</a>
-                    <a href="projetos.html" class="cta-button cta-outline">Ver Projetos</a>
+                    <a href="#projetos" class="cta-button">Ver Projetos</a>
+                    <a href="#contato" class="cta-button cta-outline">Entrar em Contato</a>
                 </div>
 
                 <div class="hero-stats">
                     <div>
-                        <span class="stat-num">4</span>
+                        <span class="stat-num" data-target="4">0</span>
                         <span class="stat-label">Projetos</span>
                     </div>
                     <div>
-                        <span class="stat-num">3</span>
-                        <span class="stat-label">Serviços</span>
+                        <span class="stat-num" data-target="8">0</span>
+                        <span class="stat-label">Skills</span>
                     </div>
                     <div>
                         <span class="stat-num">SP</span>
@@ -72,11 +77,11 @@
                 </div>
             </div>
 
-            <!-- Coluna da imagem -->
             <div class="hero-image">
                 <div class="hero-img-wrapper">
                     <img src="images/Profile cartoon png.png" alt="Black Avatar">
                     <div class="hero-img-ring"></div>
+                    <div class="hero-img-ring hero-img-ring-2"></div>
                     <div class="hero-img-glow"></div>
                 </div>
             </div>
@@ -84,7 +89,251 @@
         </div>
 
         <div class="hero-bg-pattern"></div>
+
+        <!-- Indicador de scroll -->
+        <a href="#sobre" class="scroll-indicator" aria-label="Rolar para próxima seção">
+            <span class="scroll-indicator-line"></span>
+            <span class="scroll-indicator-text">SCROLL</span>
+        </a>
     </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section class="about-section" id="sobre">
+        <div class="container">
+
+            <div class="section-head">
+                <span class="section-number">01</span>
+                <span class="section-label">// about me</span>
+                <h2 class="section-title">Minha <span class="hl">História</span></h2>
+                <p class="section-subtitle">De brinquedos desmontados à tecnologia — a curiosidade sempre foi o motor.</p>
+            </div>
+
+            <div class="about-content">
+
+                <div class="about-text">
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                        </div>
+                        <div class="terminal-content">
+                            <span class="term-prompt">$ cat about.txt</span>
+                            <p>
+                                Minha mãe nunca entendeu por que eu destruía meus presentes.
+                                Ela via apenas brinquedos quebrados. Eu via mistérios esperando
+                                para serem desvendados.
+                            </p>
+                            <br>
+                            <p>
+                                Crescer em São Paulo me ensinou que a vida também é assim: um
+                                monte de peças soltas que a gente precisa aprender a encaixar.
+                                Passei anos juntando parafusos — uns de tecnologia, outros de
+                                alma humana.
+                            </p>
+                            <br>
+                            <p>
+                                Até que um dia fiz a pergunta que mudou tudo: e se o que
+                                realmente precisa ser desmontado não são os objetos, mas as
+                                correntes que a gente carrega sem perceber?
+                            </p>
+                            <br>
+                            <p>
+                                Foi assim que nasceu minha obsessão pela liberdade. Não a
+                                liberdade dos discursos bonitos, mas aquela que sua mãe sente
+                                quando dorme tranquila sem dívidas. Aquela que você sente quando
+                                pode escolher o próprio caminho.
+                            </p>
+                            <br>
+                            <p>
+                                Hoje, meu trabalho é um só: ajudar pessoas a montarem a própria
+                                vida — com as peças que realmente importam. Se você também quer
+                                isso, vem comigo.
+                            </p>
+                            <span class="term-cursor">_</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-sidebar">
+                    <div class="about-image-wrapper">
+                        <img src="images/Profile cartoon png.png" alt="Black">
+                    </div>
+
+                    <div class="skills-card">
+                        <h4>Stack &amp; Habilidades</h4>
+                        <div class="skills-tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Cibersegurança</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Hardware</span>
+                            <span class="skill-tag">Redes</span>
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">Git / GitHub</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Marquee de tecnologias -->
+        <div class="tech-marquee" aria-hidden="true">
+            <div class="tech-marquee-track">
+                <span>HTML</span><span>•</span>
+                <span>CSS</span><span>•</span>
+                <span>JavaScript</span><span>•</span>
+                <span>Linux</span><span>•</span>
+                <span>Cibersegurança</span><span>•</span>
+                <span>Redes</span><span>•</span>
+                <span>Git</span><span>•</span>
+                <span>Hardware</span><span>•</span>
+                <span>WordPress</span><span>•</span>
+                <!-- repeat -->
+                <span>HTML</span><span>•</span>
+                <span>CSS</span><span>•</span>
+                <span>JavaScript</span><span>•</span>
+                <span>Linux</span><span>•</span>
+                <span>Cibersegurança</span><span>•</span>
+                <span>Redes</span><span>•</span>
+                <span>Git</span><span>•</span>
+                <span>Hardware</span><span>•</span>
+                <span>WordPress</span><span>•</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJETOS ===== -->
+    <section class="projects-section" id="projetos">
+        <div class="container">
+
+            <div class="section-head">
+                <span class="section-number">02</span>
+                <span class="section-label">// portfolio</span>
+                <h2 class="section-title">Meus <span class="hl">Projetos</span></h2>
+                <p class="section-subtitle">Uma seleção do que já construí — de aplicações web a canais de conteúdo.</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="project-card" data-tilt>
+                    <div class="project-img-area">
+                        <img src="images/Profile cartoon png.png" alt="Bl4ck">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Conteúdo</span>
+                        <h3>Bl4ck</h3>
+                        <p>Canal no YouTube com conteúdo sobre Tecnologia, Cibersegurança e Opiniões.</p>
+                        <a href="https://www.youtube.com/@Bl4ckHa7" target="_blank" rel="noopener" class="project-link">
+                            Visitar canal <span class="arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tilt>
+                    <div class="project-img-area">
+                        <img src="images/Logo BilaBilu2.png" alt="BilaBilu Crochê">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Web / Freelance</span>
+                        <h3>BilaBilu Crochê</h3>
+                        <p>Site de divulgação e vendas para artesanato em crochê, desenvolvido do zero para uma cliente.</p>
+                        <a href="https://bilabilu.netlify.app/" target="_blank" rel="noopener" class="project-link">
+                            Ver projeto <span class="arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tilt>
+                    <div class="project-img-area">
+                        <img src="images/Relogio.png" alt="Pomodoro Timer">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">App</span>
+                        <h3>Pomodoro</h3>
+                        <p>Timer interativo baseado na técnica Pomodoro para gerenciamento de foco e produtividade.</p>
+                        <a href="https://black-pomodoro.netlify.app/" target="_blank" rel="noopener" class="project-link">
+                            Ver projeto <span class="arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tilt>
+                    <div class="project-img-area" style="background: #1e2330;">
+                        <span style="font-family: var(--fonte-titulo); font-size: 1.4rem; color: var(--azul-eletrico); letter-spacing: 2px; text-shadow: 0 0 15px rgba(0,168,255,0.4);">JM</span>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">E-commerce</span>
+                        <h3>JM Auto Peças</h3>
+                        <p>Projeto de e-commerce para loja de auto peças, com catálogo de produtos e interface de compra.</p>
+                        <a href="https://bl4ckha7.github.io/JM/" target="_blank" rel="noopener" class="project-link">
+                            Ver projeto <span class="arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section class="contact-section" id="contato">
+        <div class="container">
+
+            <div class="section-head">
+                <span class="section-number">03</span>
+                <span class="section-label">// contact</span>
+                <h2 class="section-title">Vamos <span class="hl">Conversar?</span></h2>
+                <p class="section-subtitle">Escolha o canal de sua preferência — responderei o mais rápido possível.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-grid">
+
+                    <a href="https://www.linkedin.com/in/felipe-sales-pessoa-b0814b34b/" target="_blank" rel="noopener" class="contact-card">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="card-label">LinkedIn</span>
+                        <span class="card-value">Felipe Sales</span>
+                    </a>
+
+                    <a href="mailto:felipepessoa404@gmail.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <span class="card-label">E-mail</span>
+                        <span class="card-value">felipepessoa404@gmail.com</span>
+                    </a>
+
+                    <a href="https://wa.me/5511930745778" target="_blank" rel="noopener" class="contact-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="card-label">WhatsApp</span>
+                        <span class="card-value">(11) 93074-5778</span>
+                    </a>
+
+                    <a class="contact-card contact-card-static" aria-label="Discord: bl4ck_ha7">
+                        <i class="fab fa-discord"></i>
+                        <span class="card-label">Discord</span>
+                        <span class="card-value">bl4ck_ha7</span>
+                    </a>
+
+                    <a href="https://github.com/Bl4ckHa7" target="_blank" rel="noopener" class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <span class="card-label">GitHub</span>
+                        <span class="card-value">Bl4ckHa7</span>
+                    </a>
+
+                    <a href="images/Curriculo.pdf" download class="contact-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="card-label">Currículo</span>
+                        <span class="card-value">Baixar PDF</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -99,6 +348,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Botão voltar ao topo -->
+    <a href="#hero" class="back-to-top" aria-label="Voltar ao topo">
+        <span>↑</span>
+    </a>
 
     <script src="js/script.js"></script>
 </body>
