@@ -21,72 +21,57 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.className = 'custom-cursor';
         body.appendChild(cursor);
 
-        const TRAIL_LEN  = 7;
-        const posHistory = [];
-        const trailEls   = [];
-
-        for (let i = 0; i < TRAIL_LEN; i++) {
-            const el = document.createElement('div');
-            el.className = 'cursor-trail';
-            const size   = Math.max(2, Math.round(6 - (i / TRAIL_LEN) * 4));
-            const offset = -(size / 2);
-            el.style.cssText =
-                `width:${size}px;height:${size}px;` +
-                `margin-top:${offset}px;margin-left:${offset}px;`;
-            body.appendChild(el);
-            trailEls.push(el);
-        }
-
         let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
         let targetScale = 1, currentScale = 1;
-        const lerpScale = 0.18;
+        let scaleRAF = null;
 
-        function updateCursor() {
-            cursorX = mouseX;
-            cursorY = mouseY;
-            currentScale += (targetScale - currentScale) * lerpScale;
+        function writeTransform() {
             cursor.style.transform =
-                `translate3d(${cursorX}px, ${cursorY}px, 0) scale(${currentScale})`;
-
-            posHistory.unshift({ x: cursorX, y: cursorY });
-            if (posHistory.length > TRAIL_LEN + 1) posHistory.pop();
-
-            trailEls.forEach((el, i) => {
-                const pos = posHistory[i + 1];
-                if (!pos) { el.style.opacity = '0'; return; }
-                const t = i / TRAIL_LEN;
-                el.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`;
-                el.style.opacity = ((1 - t) * 0.65).toFixed(3);
-            });
-
-            requestAnimationFrame(updateCursor);
+                `translate3d(${mouseX}px, ${mouseY}px, 0) scale(${currentScale})`;
         }
 
+        // Atualiza posição DIRETO no mousemove. O browser já throttla
+        // mousemove ao rAF do compositor — fica tão suave quanto o cursor nativo,
+        // sem rAF loop perpétuo gastando CPU/GPU enquanto o mouse está parado.
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-        });
+            writeTransform();
+        }, { passive: true });
 
-        updateCursor();
+        // rAF só roda enquanto está interpolando o scale (entrada/saída de hover)
+        function animateScale() {
+            currentScale += (targetScale - currentScale) * 0.22;
+            if (Math.abs(targetScale - currentScale) > 0.005) {
+                writeTransform();
+                scaleRAF = requestAnimationFrame(animateScale);
+            } else {
+                currentScale = targetScale;
+                writeTransform();
+                scaleRAF = null;
+            }
+        }
+
+        function startScaleAnim() {
+            if (scaleRAF === null) scaleRAF = requestAnimationFrame(animateScale);
+        }
 
         const interactiveElements = $$('a, button, .project-card, .contact-card, .skill-tag, .stat-num');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 targetScale = 1.7;
                 cursor.classList.add('hover');
+                startScaleAnim();
             });
             el.addEventListener('mouseleave', () => {
                 targetScale = 1;
                 cursor.classList.remove('hover');
+                startScaleAnim();
             });
         });
 
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-            trailEls.forEach(el => el.style.opacity = '0');
-        });
-        document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
+        document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+        document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
     }
 
     // ==================== HAMBURGUER MENU ====================
